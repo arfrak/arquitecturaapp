@@ -17,11 +17,10 @@ export default function (props) {
   };
 
   let navigate = useNavigate();
-  const routeChange = (idUsuario, usuario, nombre, apellido, gerencia, estado) => {
-    console.log(idUsuario)
+  const routeChange = (id_usuario, usuario, nombre, apellido, gerencia, estado) => {
     navigate('/dashboard', {
       state: {
-        idUsuario: idUsuario,
+        idUsuario: id_usuario,
         usuario: usuario,
         nombre: nombre,
         apellido: apellido,
@@ -46,7 +45,7 @@ export default function (props) {
     .then((response) => {
       if(response.status === 200) {
         routeChange(
-          response.data.info.idUsuario, 
+          response.data.info.id_usuario, 
           response.data.info.usuario, 
           response.data.info.nombre, 
           response.data.info.apellido, 
