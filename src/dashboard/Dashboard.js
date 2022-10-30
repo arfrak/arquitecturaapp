@@ -16,7 +16,7 @@ function Dashboard(props) {
 
   const [list, setList] = useState([]);
   useEffect(() => {
-    axios.get("http://20.75.11.36/courses/")
+    axios.get("https://evergreen.free.beeceptor.com/courses/")
       .then((response) => {
         setList(response.data.courses);
       })

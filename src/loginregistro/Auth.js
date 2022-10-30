@@ -41,7 +41,7 @@ function Auth(props) {
 
   const fetchData = () => {
     setIsShown(false);
-    axios.post("https://evergreen.free.beeceptor.com/login", article, { headers })
+    axios.post("https://evergreen.free.beeceptor.com/login/", article, { headers })
     .then((response) => {
       if(response.status === 200) {
         routeChange(
