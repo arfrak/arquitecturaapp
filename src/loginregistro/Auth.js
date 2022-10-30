@@ -59,7 +59,7 @@ function Auth(props) {
       }
     })
     .catch((error) => {
-      setStatusMessage("Error de respuesta del servidor.");
+      setStatusMessage("Error de respuesta del servidor." + error);
       setAlertType(false);
       setIsShown(true);
     })
