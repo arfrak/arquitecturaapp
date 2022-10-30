@@ -101,8 +101,7 @@ function Auth(props) {
               </button>
             </div>
             <p className="text-center mt-2">
-              
-              Olvido su <a href="">contraseña?</a>
+              Olvido su <a href="/#">contraseña?</a>
             </p>
             { isShown && (
               <div className={alertType ? alertClassWarning : alertClassError } role="alert">
@@ -156,7 +155,7 @@ function Auth(props) {
             </button>
           </div>
           <p className="text-center mt-2">
-            Forgot <a href="#">password?</a>
+            Forgot <a href="/#">password?</a>
           </p>
         </div>
       </form>
