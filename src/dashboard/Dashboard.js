@@ -5,7 +5,7 @@ import React, { useState, useEffect } from "react";
 import CourseSummary from '../dashboard/CourseSummary'
 import axios from "axios";
 
-export default function (props) {
+function Dashboard(props) {
   const message1 = "Este espacio sirve para ver de forma detallada los cursos asignados a su perfil, " + 
                   "esperamos que sean de su mayor agrado y que pueda completarlos de forma correcta.";
   const message2 = "La educación virtual " + 
@@ -46,3 +46,5 @@ export default function (props) {
     </div>
   );
 }
+
+export default Dashboard

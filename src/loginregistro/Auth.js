@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-export default function (props) {
+function Auth(props) {
   const [username, setUserName] = useState();
   const [password, setPassword] = useState();
   let alertClassError = "alert alert-danger"
@@ -102,7 +102,7 @@ export default function (props) {
             </div>
             <p className="text-center mt-2">
               
-              Olvido su <a href="#">contraseña?</a>
+              Olvido su <a href="">contraseña?</a>
             </p>
             { isShown && (
               <div className={alertType ? alertClassWarning : alertClassError } role="alert">
@@ -163,3 +163,5 @@ export default function (props) {
     </div>
   )
 }
+
+export default Auth
