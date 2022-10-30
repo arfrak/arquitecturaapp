@@ -96,7 +96,7 @@ export default function (props) {
               />
             </div>
             <div className="d-grid gap-2 mt-3">
-              <button type="button" className="btn btn-primary" onClick={fetchData}>
+              <button type="button" className="btn btn-success" onClick={fetchData}>
                 Ingresar
               </button>
             </div>

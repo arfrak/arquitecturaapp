@@ -1,62 +1,57 @@
 import TopBar from '../components/TopBar';
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import courses from '../components/courses'
+import { useParams } from 'react-router-dom'
+import React, { useState } from "react";
+
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 
 function Course(props) {
   const location = useLocation();
+  const { courseId } = useParams();
+  const [ show, setOpen ] = useState(false);
+  const course = courses.find(course => course.id === parseInt(courseId));
+  let navigate = useNavigate();
+  let disableButton = "btn btn-success disabled";
+  let enableButton = "btn btn-success";
+  const [ buttonState, setButtonState ] = useState(true);
 
-  const headers = {
-    'Content-Type': 'application/json'
+  const handleClickOpen = () => {
+    setOpen(true);
   };
-
-  const article = {
-    "idUsuario": location.state.idUsuario, 
-    "idCourse": location.state.idCourse
+  
+  const handleClose = () => {
+    setOpen(false); 
+    setButtonState(false)
   };
-/*
-  const sendState = () => {
-    setIsShown(false);
-    axios.post("http://20.75.11.36/", article, { headers })
-    .then((response) => {
-      if(response.status === 200) {
-        routeChange(
-          response.data.info.idUsuario, 
-          response.data.info.usuario, 
-          response.data.info.nombre, 
-          response.data.info.apellido, 
-          response.data.info.gerencia, 
-          response.data.info.estado
-        );
-      } else {
-        setStatusMessage("Error en las credenciales del usuario.");
-        setAlertType(true);
-        setIsShown(true);
-      }
-    })
-    .catch((error) => {
-      setStatusMessage("Error de respuesta del servidor.");
-      setAlertType(false);
-      setIsShown(true);
-    })
-  };
-*/
-
-  const sendState = () => {}
 
   return (
     <div>
       <TopBar />
       <div className="Course page">
-      <header>
-          <h1>{location.state.title}</h1>
-          <p>{location.state.description}</p>
+        <header>
+          <h1>{course.title}</h1>
+          <p>{course.description}</p>
         </header>
         <div>
           <div className="d-grid gap-2 mt-3">
-            <button type="button" className="btn btn-primary" onClick={sendState}>
-              Terminar
+            <button type="button" class={buttonState ? enableButton : disableButton} style={{ width: '150px' }} onClick={handleClickOpen}>
+              Completar curso
             </button>
           </div>
         </div>
+
+        <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Curso terminado de forma correcta.</Modal.Title>
+        </Modal.Header>
+        <Modal.Footer>
+          <Button variant="primary" onClick={handleClose}>
+            Aceptar
+          </Button>
+        </Modal.Footer>
+      </Modal>
       </div>
     </div>
   )
