@@ -1,5 +1,4 @@
 import TopBar from '../components/TopBar';
-import { useLocation, useNavigate } from "react-router-dom";
 import courses from '../components/courses'
 import { useParams } from 'react-router-dom'
 import React, { useState } from "react";
@@ -8,11 +7,9 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
 function Course(props) {
-  const location = useLocation();
   const { courseId } = useParams();
   const [ show, setOpen ] = useState(false);
   const course = courses.find(course => course.id === parseInt(courseId));
-  let navigate = useNavigate();
   let disableButton = "btn btn-success disabled";
   let enableButton = "btn btn-success";
   const [ buttonState, setButtonState ] = useState(true);
